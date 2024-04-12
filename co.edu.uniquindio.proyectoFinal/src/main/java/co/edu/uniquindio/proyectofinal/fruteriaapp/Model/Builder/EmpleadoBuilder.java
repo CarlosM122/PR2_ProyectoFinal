@@ -1,11 +1,12 @@
 package co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Builder;
 
-import co.edu.uniquindio.proyectofinal.proyectofinalapp.Model.Empleado;
+import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Empleado;
 
 public class EmpleadoBuilder {
     protected String nombre;
     protected String apellido;
     protected String idEmpleado;
+    protected String contraseña;
 
     public EmpleadoBuilder nombre(String nombre) {
         this.nombre = nombre;
@@ -21,5 +22,10 @@ public class EmpleadoBuilder {
         this.idEmpleado = idEmpleado;
         return this;
     }
-    public Empleado build(){return new Empleado(nombre, apellido,idEmpleado);}
+
+    public EmpleadoBuilder contraseña(String contraseña){
+        this.contraseña= contraseña;
+        return this;
+    }
+    public Empleado build(){return new Empleado(nombre, apellido,idEmpleado,contraseña);}
 }

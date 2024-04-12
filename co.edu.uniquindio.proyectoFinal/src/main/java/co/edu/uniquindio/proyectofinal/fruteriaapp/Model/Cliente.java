@@ -6,18 +6,16 @@ public class Cliente {
     private String apellido;
     private String cedula;
     private String direccion;
-    private String idProveedor;
 
     public Cliente() {
     }
 
-    public Cliente(String idCliente, String nombre, String apellido, String cedula, String direccion, String idProveedor) {
+    public Cliente(String idCliente, String nombre, String apellido, String cedula, String direccion) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.direccion = direccion;
-        this.idProveedor = idProveedor;
     }
 
     public String getIdCliente() {
@@ -58,13 +56,5 @@ public class Cliente {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
-    }
-
-    public String getIdProveedor() {
-        return idProveedor;
-    }
-
-    public void setIdProveedor(String idProveedor) {
-        this.idProveedor = idProveedor;
     }
 }

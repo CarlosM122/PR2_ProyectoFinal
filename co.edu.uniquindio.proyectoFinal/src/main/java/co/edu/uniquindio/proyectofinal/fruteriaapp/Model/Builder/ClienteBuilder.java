@@ -1,12 +1,11 @@
 package co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Builder;
-import co.edu.uniquindio.proyectofinal.proyectofinalapp.Model.Cliente;
+import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Cliente;
 public class ClienteBuilder {
     protected String idCliente;
     protected String nombre;
     protected String apellido;
     protected String cedula;
     protected String direccion;
-    protected String idProveedor;
 
     public ClienteBuilder idCliente (String idCliente) {
         this.idCliente = idCliente;
@@ -32,10 +31,5 @@ public class ClienteBuilder {
         this.direccion = direccion;
         return this;
     }
-
-    public ClienteBuilder idProveedor(String idProveedor) {
-        this.idProveedor = idProveedor;
-        return this;
-    }
-    public Cliente build() { return new Cliente(idCliente, nombre, apellido, cedula, direccion, idProveedor); }
+    public Cliente build() { return new Cliente(idCliente, nombre, apellido, cedula, direccion); }
 }

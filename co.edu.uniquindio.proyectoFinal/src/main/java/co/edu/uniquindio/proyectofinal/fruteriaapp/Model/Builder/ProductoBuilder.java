@@ -1,6 +1,6 @@
 package co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Builder;
 
-import co.edu.uniquindio.proyectofinal.proyectofinalapp.Model.Producto;
+import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Producto;
 
 public class ProductoBuilder {
     protected String nombre;

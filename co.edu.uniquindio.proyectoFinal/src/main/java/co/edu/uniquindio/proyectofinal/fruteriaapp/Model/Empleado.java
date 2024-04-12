@@ -4,14 +4,16 @@ public class Empleado {
     private String nombre;
     private String apellido;
     private String idEmpleado;
+    private String contraseña;
 
     public Empleado() {
     }
 
-    public Empleado(String nombre, String apellido, String idEmpleado) {
+    public Empleado(String nombre, String apellido, String idEmpleado, String contraseña) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.idEmpleado = idEmpleado;
+        this.contraseña = contraseña;
     }
 
     public String getNombre() {
@@ -36,5 +38,13 @@ public class Empleado {
 
     public void setIdEmpleado(String idEmpleado) {
         this.idEmpleado = idEmpleado;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseñaEmpleado) {
+        this.contraseña = contraseñaEmpleado;
     }
 }
