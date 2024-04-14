@@ -8,8 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="275.0" prefWidth="313.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinal.fruteriaapp.LR">
+<AnchorPane prefHeight="275.0" prefWidth="313.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinal.fruteriaapp.ViewController.AutenticationViewController">
    <children>
       <TabPane layoutY="29.0" prefHeight="259.0" prefWidth="307.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -19,10 +18,10 @@
                      <children>
                         <Label layoutX="27.0" layoutY="22.0" text="Id Empleado:" />
                         <Label layoutX="27.0" layoutY="70.0" prefWidth="69.0" text="Contraseña:" />
-                        <TextField layoutX="112.0" layoutY="66.0" />
-                        <TextField layoutX="112.0" layoutY="18.0" />
-                        <Button layoutX="52.0" layoutY="151.0" mnemonicParsing="false" text="Empleado" />
-                        <Button layoutX="170.0" layoutY="151.0" mnemonicParsing="false" text="Administrador" />
+                        <TextField fx:id="txtContraseña" layoutX="112.0" layoutY="66.0" />
+                        <TextField fx:id="txtIdEmpleado" layoutX="112.0" layoutY="18.0" />
+                        <Button fx:id="btnEmpleado" layoutX="52.0" layoutY="151.0" mnemonicParsing="false" onAction="#onEmpleado" text="Empleado" />
+                        <Button fx:id="btnAdministrador" layoutX="170.0" layoutY="151.0" mnemonicParsing="false" onAction="#onAdministrador" text="Administrador" />
                         <Separator layoutX="5.0" layoutY="122.0" prefHeight="3.0" prefWidth="307.0" />
                      </children>
                   </AnchorPane>
@@ -36,11 +35,11 @@
                         <Label layoutX="14.0" layoutY="51.0" text="Apellido:" />
                         <Label layoutX="12.0" layoutY="90.0" text="Id de Empleado:" />
                         <Label layoutX="12.0" layoutY="132.0" text="Nueva contraseña:" />
-                        <TextField layoutX="133.0" layoutY="10.0" />
-                        <TextField layoutX="134.0" layoutY="47.0" />
-                        <TextField layoutX="134.0" layoutY="86.0" />
-                        <TextField layoutX="134.0" layoutY="128.0" />
-                        <Button layoutX="122.0" layoutY="180.0" mnemonicParsing="false" text="Registrar" />
+                        <TextField fx:id="txtNombre" layoutX="133.0" layoutY="10.0" />
+                        <TextField fx:id="txtApellido" layoutX="134.0" layoutY="47.0" />
+                        <TextField fx:id="txtNewIdEmpleado" layoutX="134.0" layoutY="86.0" />
+                        <TextField fx:id="txtNewContraseña" layoutX="134.0" layoutY="128.0" />
+                        <Button fx:id="btnRegistrar" layoutX="122.0" layoutY="180.0" mnemonicParsing="false" onAction="#onRegistrar" text="Registrar" />
                         <Separator layoutX="4.0" layoutY="168.0" prefHeight="3.0" prefWidth="307.0" />
                      </children>
                   </AnchorPane>
