@@ -7,10 +7,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class FruteriaApplication extends Application {
+public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(FruteriaApplication.class.getResource("ProductoView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("VentaView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Fruteria");
         stage.setScene(scene);
@@ -18,6 +18,5 @@ public class FruteriaApplication extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
-    }
+        launch();}
 }
