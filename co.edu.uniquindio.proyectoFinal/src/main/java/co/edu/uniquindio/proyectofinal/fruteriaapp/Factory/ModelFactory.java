@@ -1,6 +1,10 @@
 package co.edu.uniquindio.proyectofinal.fruteriaapp.Factory;
 
+import co.edu.uniquindio.proyectofinal.fruteriaapp.Controller.ProductoController;
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Fruteria;
+import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Producto;
+
+import java.util.List;
 
 public class ModelFactory {
     private static ModelFactory modelFactory;
@@ -18,6 +22,23 @@ public class ModelFactory {
         return modelFactory;
     }
     private void inicializarDatos(){
-        fruteria.setNombre("");
+        fruteria.setNombre("Amaranto");
+
+        Producto producto = Producto.builder()
+                .nombre("Naranja")
+                .idProducto("B45")
+                .cantidadStock(23)
+                .precio(600)
+                .build();
+
+        fruteria.getProductoList().add(producto);
+    }
+
+    public boolean agregarProducto(Producto producto) {
+        return fruteria.agergarProducto(producto);
+    }
+
+    public List<Producto> obtenerProductos() {
+        return fruteria.getProductoList();
     }
 }

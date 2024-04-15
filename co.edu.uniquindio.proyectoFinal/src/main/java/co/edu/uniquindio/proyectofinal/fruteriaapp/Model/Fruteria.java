@@ -50,4 +50,26 @@ public class Fruteria {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public boolean agergarProducto(Producto producto) {
+        Producto encontrarProducto =obtenerProducto(producto.getIdProducto());
+        if(encontrarProducto==null){
+            getProductoList().add(producto);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    private Producto obtenerProducto(String idProducto) {
+        Producto producto =null;
+        for (Producto producto1:productoList){
+            if(producto1.getIdProducto().equalsIgnoreCase(idProducto)){
+                producto=producto1;
+                break;
+            }
+        }
+        return producto;
+    }
 }

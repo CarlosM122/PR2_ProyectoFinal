@@ -7,7 +7,6 @@ public class ProductoBuilder {
     protected String idProducto;
     protected double precio;
     protected int cantidadStock;
-    protected String idProveedor;
 
     public ProductoBuilder nombre(String nombre) {
         this.nombre = nombre;
@@ -28,10 +27,5 @@ public class ProductoBuilder {
         this.cantidadStock = cantidadStock;
         return this;
     }
-
-    public ProductoBuilder idProveedor(String idProveedor) {
-        this.idProveedor = idProveedor;
-        return this;
-    }
-    private Producto build(){return new Producto(nombre,idProducto,precio, cantidadStock, idProveedor);}
+    public Producto build(){return new Producto(nombre,idProducto,precio, cantidadStock);}
 }
