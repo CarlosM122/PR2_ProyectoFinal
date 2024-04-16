@@ -121,7 +121,7 @@ public class ProductoViewController {
                 mostrarMensaje("Informacion Producto","Producto Agregado","El Producto se agrego correctamente", Alert.AlertType.INFORMATION);
                 limpiarCamposProducto();
             }else{
-                mostrarMensaje("Informacion Producto","Producto No Agregado","El usuario no se creo correctamente",Alert.AlertType.ERROR);
+                mostrarMensaje("Informacion Producto","Producto No Agregado","El producto no se agrego correctamente",Alert.AlertType.ERROR);
             }
         }else {
             mostrarMensaje("Informacion Producto","Campos Vacios","Hay campos vacios que son necesarios",Alert.AlertType.ERROR);

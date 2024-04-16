@@ -1,6 +1,7 @@
 package co.edu.uniquindio.proyectofinal.fruteriaapp.Factory;
 
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Controller.ProductoController;
+import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Cliente;
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Fruteria;
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Producto;
 
@@ -40,5 +41,13 @@ public class ModelFactory {
 
     public List<Producto> obtenerProductos() {
         return fruteria.getProductoList();
+    }
+
+    public List<Cliente> obtenerClientes() {
+        return fruteria.getClienteList();
+    }
+
+    public boolean crearCliente(Cliente cliente) {
+        return fruteria.crearCliente(cliente);
     }
 }

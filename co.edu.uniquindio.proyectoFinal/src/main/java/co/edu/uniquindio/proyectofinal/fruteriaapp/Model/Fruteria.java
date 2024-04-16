@@ -72,4 +72,26 @@ public class Fruteria {
         }
         return producto;
     }
+
+    public boolean crearCliente(Cliente cliente) {
+        Cliente encontrarCliente= obtenerCliente(cliente.getIdCliente());
+        if(encontrarCliente==null){
+            getClienteList().add(cliente);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    private Cliente obtenerCliente(String idCliente) {
+        Cliente cliente=null;
+        for (Cliente cliente1:clienteList){
+            if(cliente1.getIdCliente().equalsIgnoreCase(idCliente)){
+                cliente=cliente1;
+                break;
+            }
+        }
+        return cliente;
+    }
 }

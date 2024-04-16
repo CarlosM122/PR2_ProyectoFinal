@@ -10,7 +10,7 @@ import java.io.IOException;
 public class FruteriaApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(FruteriaApplication.class.getResource("VentaView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(FruteriaApplication.class.getResource("ClienteView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Fruteria");
         stage.setScene(scene);
