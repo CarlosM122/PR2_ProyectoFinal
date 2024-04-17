@@ -1,19 +1,24 @@
 package co.edu.uniquindio.proyectofinal.fruteriaapp.ViewController;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Controller.AutenticationController;
-import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Cliente;
+import co.edu.uniquindio.proyectofinal.fruteriaapp.FruteriaApplication;
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Empleado;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class AutenticationViewController {
-
+    Stage stage;
     AutenticationController autenticationController;
     @FXML
     private ResourceBundle resources;
@@ -49,7 +54,7 @@ public class AutenticationViewController {
 
     @FXML
     void onEmpleado(ActionEvent event) {
-        ingresarEmpleado(txtIdEmpleado.getText())
+        ingresarEmpleado(txtIdEmpleado.getText());
     }
 
     @FXML
@@ -73,10 +78,19 @@ public class AutenticationViewController {
 
     private void ingresarEmpleado(String idEmpleado){
         if(buscarEmpleado(idEmpleado)){
-
-        }
-        else {
-
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(FruteriaApplication.class.getResource("ProductoView.fxml"));
+                Parent root = fxmlLoader.load();
+                Stage nuevaVentana = new Stage();
+                Scene scene = new Scene(root);
+                nuevaVentana.setTitle("Nueva Ventana");
+                nuevaVentana.setScene(scene);
+                nuevaVentana.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            // Manejar el caso en que buscarEmpleado(idEmpleado) sea falso
         }
     }
 
@@ -108,7 +122,7 @@ public class AutenticationViewController {
         return Empleado.builder()
                 .nombre(txtNombre.getText())
                 .apellido(txtApellido.getText())
-                .idEmpleado(txtIdEmpleado.getId())
+                .idEmpleado(txtIdEmpleado.getText())
                 .build();
     }
 

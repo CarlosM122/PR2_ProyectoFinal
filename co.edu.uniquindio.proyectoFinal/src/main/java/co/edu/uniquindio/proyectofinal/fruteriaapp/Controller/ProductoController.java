@@ -19,4 +19,12 @@ public class ProductoController {
     public List<Producto> obtenerProductos() {
         return modelFactory.obtenerProductos();
     }
+
+    public List<Producto> buscarMenoresACantidad(int cantidad) {
+        return modelFactory.buscarMenoresACantidad(cantidad);
+    }
+
+    public List<Producto> obtenerProductosMayores(int precio) {
+        return modelFactory.obtenerProductosMayores(precio);
+    }
 }

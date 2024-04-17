@@ -9,10 +9,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="404.0" prefWidth="562.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinal.fruteriaapp.ViewController.ProductoViewController">
+<AnchorPane prefHeight="627.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinal.fruteriaapp.ViewController.ProductoViewController">
    <children>
-      <Separator layoutX="-5.0" layoutY="38.0" prefHeight="3.0" prefWidth="566.0" />
-      <TableView fx:id="TableProducto" layoutY="200.0" prefHeight="158.0" prefWidth="562.0">
+      <Separator layoutX="-1.0" layoutY="38.0" prefHeight="3.0" prefWidth="845.0" />
+      <TableView fx:id="TableProducto" layoutX="246.0" layoutY="251.0" prefHeight="306.0" prefWidth="554.0">
         <columns>
           <TableColumn fx:id="tcIdProducto" prefWidth="112.00006103515625" text="Id Producto" />
           <TableColumn fx:id="tcNombre" prefWidth="187.199951171875" text="Nombre" />
@@ -22,20 +22,33 @@
       </TableView>
       <Label layoutX="23.0" layoutY="57.0" text="Id del producto:" />
       <Label layoutX="23.0" layoutY="88.0" text="Nombre producto:" />
-      <Label layoutX="20.0" layoutY="120.0" text="Cantidad (Stock):" />
+      <Label layoutX="477.0" layoutY="88.0" text="Cantidad (Stock):" />
       <TextField fx:id="txtIdProducto" layoutX="154.0" layoutY="53.0" />
       <TextField fx:id="txtNombreProducto" layoutX="155.0" layoutY="84.0" />
-      <TextField fx:id="txtCantidad" layoutX="155.0" layoutY="116.0" />
-      <Button fx:id="Agregarbtn" layoutX="143.0" layoutY="160.0" mnemonicParsing="false" onAction="#onAgregar" text="Agregar" />
-      <Button fx:id="Actualizarbtn" layoutX="371.0" layoutY="160.0" mnemonicParsing="false" onAction="#onActualizar" text="Actualizar" />
-      <Button fx:id="Eliminarbtn" layoutX="250.0" layoutY="372.0" mnemonicParsing="false" onAction="#onEliminar" text="Eliminar" />
-      <Label layoutX="335.0" layoutY="57.0" text="Precio:" />
-      <TextField fx:id="txtPrecio" layoutX="388.0" layoutY="53.0" />
-      <Separator layoutY="7.0" prefHeight="3.0" prefWidth="562.0" />
-      <Label layoutX="248.0" layoutY="14.0" text="Producto">
+      <TextField fx:id="txtCantidad" layoutX="588.0" layoutY="84.0" />
+      <Button fx:id="Agregarbtn" layoutX="290.0" layoutY="160.0" mnemonicParsing="false" onAction="#onAgregar" text="Agregar" />
+      <Button fx:id="Actualizarbtn" layoutX="488.0" layoutY="160.0" mnemonicParsing="false" onAction="#onActualizar" text="Actualizar" />
+      <Button fx:id="Eliminarbtn" layoutX="498.0" layoutY="576.0" mnemonicParsing="false" onAction="#onEliminar" text="Eliminar" />
+      <Label layoutX="477.0" layoutY="57.0" text="Precio:" />
+      <TextField fx:id="txtPrecio" layoutX="588.0" layoutY="53.0" />
+      <Separator layoutY="7.0" prefHeight="3.0" prefWidth="845.0" />
+      <Label layoutX="392.0" layoutY="14.0" text="Producto">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
       </Label>
+      <Label layoutX="23.0" layoutY="242.0" text="Filtrar por:">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="269.0" text="Nombre o Precio Unidad:" />
+      <TextField fx:id="txtFiltroNombre_IdProducto" layoutX="26.0" layoutY="301.0" />
+      <Label layoutX="24.0" layoutY="349.0" text="Filtrar por precio mayor a:" />
+      <TextField fx:id="txtPrecioFiltro" layoutX="25.0" layoutY="379.0" />
+      <Button fx:id="btnPrecioFiltro" layoutX="78.0" layoutY="418.0" mnemonicParsing="false" onAction="#onPrecioFiltro" text="Filtrar" />
+      <Label layoutX="26.0" layoutY="455.0" text="Filtrar por cantidad menor a:" />
+      <TextField fx:id="txtFiltroCantidad" layoutX="26.0" layoutY="480.0" />
+      <Button fx:id="btnFiltroCantidad" layoutX="78.0" layoutY="513.0" mnemonicParsing="false" onAction="#onFiltroCantidad" text="Filtrar" />
    </children>
 </AnchorPane>

@@ -131,4 +131,24 @@ public class Fruteria {
         }
         return empleado;
     }
+
+    public List<Producto> buscarMenoresACantidad(int cantidad) {
+        List<Producto> producto = new ArrayList<>();
+        for(Producto producto1: productoList){
+            if(producto1.getCantidadStock()<=cantidad){
+                producto.add(producto1);
+            }
+        }
+        return producto;
+    }
+
+    public List<Producto> obtenerProductosMayores(int precio) {
+        List<Producto> productoList1 = new ArrayList<>();
+        for (Producto producto:productoList){
+            if (producto.getPrecio()>precio){
+                productoList1.add(producto);
+            }
+        }
+        return productoList1;
+    }
 }

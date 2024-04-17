@@ -3,9 +3,13 @@ package co.edu.uniquindio.proyectofinal.fruteriaapp.ViewController;
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Controller.ProductoController;
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Producto;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +20,8 @@ public class ProductoViewController {
     ObservableList<Producto> listaProductos = FXCollections.observableArrayList();
     Producto productoSeleccionado;
     ProductoController productoController;
+    List<Producto> listaProductosFiltrados = new ArrayList<>();
+
 
     @FXML
     private ResourceBundle resources;
@@ -31,6 +37,24 @@ public class ProductoViewController {
 
     @FXML
     private Button Eliminarbtn;
+
+    @FXML
+    private Button btnFiltrarNombre_Id;
+
+    @FXML
+    private Button btnFiltroCantidad;
+
+    @FXML
+    private Button btnPrecioFiltro;
+
+    @FXML
+    private TextField txtFiltroCantidad;
+
+    @FXML
+    private TextField txtFiltroNombre_IdProducto;
+
+    @FXML
+    private TextField txtPrecioFiltro;
 
     @FXML
     private TableView<Producto> TableProducto;
@@ -60,6 +84,16 @@ public class ProductoViewController {
     private TextField txtPrecio;
 
     @FXML
+    void onFiltroCantidad(ActionEvent event) {
+        MenoresACantidad((txtFiltroCantidad.getText()));
+    }
+
+    @FXML
+    void onPrecioFiltro(ActionEvent event) {
+        mayoresAprecio(txtPrecioFiltro.getText());
+    }
+
+    @FXML
     void onActualizar(ActionEvent event) {
         actualizarProducto(productoSeleccionado);
     }
@@ -85,6 +119,37 @@ public class ProductoViewController {
         TableProducto.getItems().clear();
         TableProducto.setItems(listaProductos);
         listenerSelection();
+        txtFiltroNombre_IdProducto.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrarProductos(newValue);
+            }
+        });
+    }
+
+    private void filtrarProductos(String filtro) {
+        ObservableList<Producto> productosFiltrados = FXCollections.observableArrayList();
+        if(txtFiltroNombre_IdProducto.getText().isEmpty()){
+            productosFiltrados.addAll(listaProductos);
+        }
+        else{
+            try {
+                int valorNumerico=Integer.parseInt(filtro);
+                for (Producto producto:listaProductos){
+                    String cantidadString= String.valueOf(producto.getPrecio());
+                    if (cantidadString.startsWith(String.valueOf(valorNumerico))){
+                        productosFiltrados.add(producto);
+                    }
+                }
+            }catch (NumberFormatException e){
+                for(Producto producto:listaProductos){
+                    if(producto.getNombre().toLowerCase().startsWith(filtro.toLowerCase())){
+                        productosFiltrados.add(producto);
+                    }
+                }
+          }
+        }
+        TableProducto.setItems(productosFiltrados);
     }
 
     private void obtenerPoductos() {
@@ -181,5 +246,33 @@ public class ProductoViewController {
                 .idProducto(txtIdProducto.getText())
                 .precio(Double.parseDouble(txtPrecio.getText()))
                 .build();
+    }
+
+    private void MenoresACantidad(String cantidad){
+        if(txtFiltroCantidad.getText().isEmpty()){
+            TableProducto.setItems(listaProductos);
+        }
+        else {List<Producto> productos = buscarMenoresACantidad(Integer.parseInt(cantidad));
+            ObservableList<Producto> productosFiltrados = FXCollections.observableArrayList(productos);
+            TableProducto.setItems(productosFiltrados);
+        }
+    }
+
+    private List<Producto> buscarMenoresACantidad(int cantidad) {
+        return productoController.buscarMenoresACantidad(cantidad);
+    }
+
+    private void mayoresAprecio(String precio) {
+        if (txtPrecioFiltro.getText().isEmpty()) {
+            TableProducto.setItems(listaProductos);
+        } else {
+            List<Producto> productoList = obtenerProductosMayores(Integer.parseInt(precio));
+            ObservableList<Producto> productosFiltrados = FXCollections.observableArrayList(productoList);
+            TableProducto.setItems(productosFiltrados);
+        }
+    }
+
+    private List<Producto> obtenerProductosMayores(int precio) {
+        return productoController.obtenerProductosMayores(precio);
     }
 }
