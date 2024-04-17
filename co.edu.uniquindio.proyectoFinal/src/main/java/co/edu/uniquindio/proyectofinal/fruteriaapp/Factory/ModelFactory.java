@@ -2,6 +2,7 @@ package co.edu.uniquindio.proyectofinal.fruteriaapp.Factory;
 
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Controller.ProductoController;
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Cliente;
+import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Empleado;
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Fruteria;
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Producto;
 
@@ -49,5 +50,13 @@ public class ModelFactory {
 
     public boolean crearCliente(Cliente cliente) {
         return fruteria.crearCliente(cliente);
+    }
+
+    public boolean buscarEmpleado(String idEmpleado) {
+        return fruteria.buscarEmpleado(idEmpleado);
+    }
+
+    public boolean crarEmpleado(Empleado empleado) {
+        return fruteria.crearEmpleado(empleado);
     }
 }

@@ -6,7 +6,6 @@ public class EmpleadoBuilder {
     protected String nombre;
     protected String apellido;
     protected String idEmpleado;
-    protected String contraseña;
 
     public EmpleadoBuilder nombre(String nombre) {
         this.nombre = nombre;
@@ -22,10 +21,5 @@ public class EmpleadoBuilder {
         this.idEmpleado = idEmpleado;
         return this;
     }
-
-    public EmpleadoBuilder contraseña(String contraseña){
-        this.contraseña= contraseña;
-        return this;
-    }
-    public Empleado build(){return new Empleado(nombre, apellido,idEmpleado,contraseña);}
+    public Empleado build(){return new Empleado(nombre, apellido,idEmpleado);}
 }

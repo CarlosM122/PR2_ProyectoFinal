@@ -94,4 +94,41 @@ public class Fruteria {
         }
         return cliente;
     }
+
+    public boolean buscarEmpleado(String idEmpleado) {
+        Empleado empleadoEncontrado = null;
+        for(Empleado empleado:empleadoList){
+            if (idEmpleado.equalsIgnoreCase(empleado.getIdEmpleado())){
+                empleadoEncontrado=empleado;
+                break;
+            }
+        }
+        if(empleadoEncontrado!=null){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean crearEmpleado(Empleado empleado) {
+        Empleado empleadoEcontrado = obtenerEmpleado(empleado.getIdEmpleado());
+        if(empleadoEcontrado==null){
+            empleadoList.add(empleado);
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private Empleado obtenerEmpleado(String idEmpleado) {
+        Empleado empleado=null;
+        for (Empleado empleado1:empleadoList){
+            if(empleado1.getIdEmpleado().equalsIgnoreCase(idEmpleado)){
+                empleado=empleado1;
+                break;
+            }
+        }
+        return empleado;
+    }
 }

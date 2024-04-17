@@ -16,10 +16,8 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="311.0" prefWidth="556.0">
                      <children>
-                        <Label layoutX="27.0" layoutY="22.0" text="Id Empleado:" />
-                        <Label layoutX="27.0" layoutY="70.0" prefWidth="69.0" text="Contraseña:" />
-                        <TextField fx:id="txtContraseña" layoutX="112.0" layoutY="66.0" />
-                        <TextField fx:id="txtIdEmpleado" layoutX="112.0" layoutY="18.0" />
+                        <Label layoutX="28.0" layoutY="51.0" text="Id Empleado:" />
+                        <TextField fx:id="txtIdEmpleado" layoutX="112.0" layoutY="47.0" />
                         <Button fx:id="btnEmpleado" layoutX="52.0" layoutY="151.0" mnemonicParsing="false" onAction="#onEmpleado" text="Empleado" />
                         <Button fx:id="btnAdministrador" layoutX="170.0" layoutY="151.0" mnemonicParsing="false" onAction="#onAdministrador" text="Administrador" />
                         <Separator layoutX="5.0" layoutY="122.0" prefHeight="3.0" prefWidth="307.0" />
@@ -34,11 +32,9 @@
                         <Label layoutX="14.0" layoutY="14.0" text="Nombre:" />
                         <Label layoutX="14.0" layoutY="51.0" text="Apellido:" />
                         <Label layoutX="12.0" layoutY="90.0" text="Id de Empleado:" />
-                        <Label layoutX="12.0" layoutY="132.0" text="Nueva contraseña:" />
                         <TextField fx:id="txtNombre" layoutX="133.0" layoutY="10.0" />
                         <TextField fx:id="txtApellido" layoutX="134.0" layoutY="47.0" />
                         <TextField fx:id="txtNewIdEmpleado" layoutX="134.0" layoutY="86.0" />
-                        <TextField fx:id="txtNewContraseña" layoutX="134.0" layoutY="128.0" />
                         <Button fx:id="btnRegistrar" layoutX="122.0" layoutY="180.0" mnemonicParsing="false" onAction="#onRegistrar" text="Registrar" />
                         <Separator layoutX="4.0" layoutY="168.0" prefHeight="3.0" prefWidth="307.0" />
                      </children>
