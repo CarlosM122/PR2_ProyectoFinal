@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinal.fruteriaapp.ViewController.VentaTransaccionViewController">
+   <children>
+      <AnchorPane prefHeight="606.0" prefWidth="827.0">
+         <children>
+            <SplitPane dividerPositions="0.49801587301587297" orientation="VERTICAL" prefHeight="606.0" prefWidth="827.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="240.0" prefWidth="826.0">
+                     <children>
+                        <Label layoutX="341.0" layoutY="5.0" text="Informacion De Venta">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="1.0" layoutY="21.0" prefHeight="0.0" prefWidth="826.0" />
+                        <Label layoutX="14.0" layoutY="98.0" text="Identificaciones:" />
+                        <Label layoutX="112.0" layoutY="123.0" text="Cedula:" />
+                        <TextField fx:id="txtCedulaCliente" layoutX="192.0" layoutY="119.0" />
+                        <Separator layoutX="-1.0" layoutY="88.0" prefHeight="3.0" prefWidth="826.0" />
+                        <Label layoutX="14.0" layoutY="24.0" text="Informacion De Venta:" />
+                        <Label layoutX="115.0" layoutY="51.0" text="Fecha:" />
+                        <TextField fx:id="txtFechaVenta" layoutX="192.0" layoutY="47.0" promptText="Dia/Mes/Año" />
+                        <Label layoutX="462.0" layoutY="51.0" text="ID Venta:" />
+                        <TextField fx:id="txtIDVenta" layoutX="568.0" layoutY="47.0" />
+                        <Separator layoutY="161.0" prefHeight="3.0" prefWidth="826.0" />
+                        <Label layoutX="16.0" layoutY="172.0" text="Informacion Producto:" />
+                        <Label layoutX="108.0" layoutY="201.0" text="ID Producto:" />
+                        <TextField fx:id="txtIdProducto" layoutX="192.0" layoutY="197.0" />
+                        <Button fx:id="btnAgregarProducto" layoutX="357.0" layoutY="238.0" mnemonicParsing="false" onAction="#onAgregarProducto" text="Agregar Producto" />
+                        <Label layoutX="461.0" layoutY="201.0" text="Cantidad:" />
+                        <TextField fx:id="txtCantidad" layoutX="568.0" layoutY="197.0" />
+                        <Label layoutX="462.0" layoutY="123.0" text="ID Empleado:" />
+                        <TextField fx:id="txtIDEmpleado" layoutX="568.0" layoutY="119.0" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="250.0" prefWidth="826.0">
+                     <children>
+                        <Label layoutX="382.0" layoutY="5.0" text="Resumen">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="TableResumen" layoutX="14.0" layoutY="34.0" prefHeight="212.0" prefWidth="580.0">
+                          <columns>
+                            <TableColumn fx:id="tcNombreProducto" prefWidth="191.19995403289795" text="Nombre Del Producto" />
+                            <TableColumn fx:id="tcIDProducto" minWidth="0.0" prefWidth="172.8000030517578" text="ID Del Producto" />
+                              <TableColumn fx:id="tcPrecioUnitario" prefWidth="121.5999755859375" text="Precio Unitario" />
+                              <TableColumn fx:id="tcCantidad" prefWidth="89.59988403320312" text="Cantidad" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="609.0" layoutY="44.0" text="TOTAL:">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtTotal" layoutX="663.0" layoutY="40.0" />
+                        <Button fx:id="btnRealizarVenta" layoutX="664.0" layoutY="127.0" mnemonicParsing="false" onAction="#onRealizarVenta" text="Realizar Venta" />
+                        <Button fx:id="btnCancelarVenta" layoutX="662.0" layoutY="220.0" mnemonicParsing="false" onAction="#onCancelarVenta" text="Cancelar Venta" />
+                        <Button fx:id="btnDomicilio" layoutX="655.0" layoutY="171.0" mnemonicParsing="false" onAction="#onDomicilio" text="Realizar Domicilio" />
+                        <Button fx:id="btnEliminar" layoutX="278.0" layoutY="255.0" mnemonicParsing="false" onAction="#onEliminar" text="Eliminar" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

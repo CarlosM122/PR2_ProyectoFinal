@@ -6,7 +6,7 @@ public class ClienteBuilder {
     protected String apellido;
     protected String cedula;
     protected String direccion;
-    protected int numCelular;
+    protected String numCelular;
 
     public ClienteBuilder idCliente (String idCliente) {
         this.idCliente = idCliente;
@@ -33,7 +33,7 @@ public class ClienteBuilder {
         return this;
     }
 
-    public ClienteBuilder numCelular(int numCelular){
+    public ClienteBuilder numCelular(String numCelular){
         this.numCelular = numCelular;
         return this;
     }

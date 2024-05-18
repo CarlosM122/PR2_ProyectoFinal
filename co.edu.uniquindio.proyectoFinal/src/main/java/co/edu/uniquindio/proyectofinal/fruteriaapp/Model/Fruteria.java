@@ -1,54 +1,37 @@
 package co.edu.uniquindio.proyectofinal.fruteriaapp.Model;
 
+import co.edu.uniquindio.proyectofinal.fruteriaapp.Contexto.VentaContexto;
+import co.edu.uniquindio.proyectofinal.fruteriaapp.Service.Observable;
+import co.edu.uniquindio.proyectofinal.fruteriaapp.Service.Observer;
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Fruteria {
+@Data
+
+public class Fruteria implements Observable {
     private String nombre;
     private List<Empleado> empleadoList = new ArrayList<>();
     private List<Producto> productoList = new ArrayList<>();
     private List<Cliente> clienteList = new ArrayList<>();
+    private List<Venta> ventaList = new ArrayList<>();
+    private List<Observer> observers = new ArrayList<>();
 
     public Fruteria() {
     }
 
-    public Fruteria(String nombre, List<Empleado> empleadoList, List<Producto> productoList, List<Cliente> clienteList) {
+    public Fruteria(String nombre, List<Empleado> empleadoList, List<Producto> productoList, List<Cliente> clienteList, List<Venta> ventaList) {
         this.nombre = nombre;
         this.empleadoList = empleadoList;
         this.productoList = productoList;
         this.clienteList = clienteList;
+        this.ventaList = ventaList;
     }
 
-    public List<Empleado> getEmpleadoList() {
-        return empleadoList;
-    }
-
-    public void setEmpleadoList(List<Empleado> empleadoList) {
-        this.empleadoList = empleadoList;
-    }
-
-    public List<Producto> getProductoList() {
-        return productoList;
-    }
-
-    public void setProductoList(List<Producto> productoList) {
-        this.productoList = productoList;
-    }
-
-    public List<Cliente> getClienteList() {
-        return clienteList;
-    }
-
-    public void setClienteList(List<Cliente> clienteList) {
-        this.clienteList = clienteList;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void agregarVenta(Venta venta) {
+        ventaList.add(venta);
+        notifyObservers();
     }
 
     public boolean agergarProducto(Producto producto) {
@@ -150,5 +133,33 @@ public class Fruteria {
             }
         }
         return productoList1;
+    }
+
+
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer:observers){
+            observer.uptade();
+        }
+    }
+
+    public String obtenerNombreCliente(String id) {
+        String nombre = "";
+        for(Cliente cliente:clienteList){
+            if(cliente.getIdCliente().equalsIgnoreCase(id)){
+                nombre=cliente.getNombre();
+            }
+        }
+        return nombre;
     }
 }

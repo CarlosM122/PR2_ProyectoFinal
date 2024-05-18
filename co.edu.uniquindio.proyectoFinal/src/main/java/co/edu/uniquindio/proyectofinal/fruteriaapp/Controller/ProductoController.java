@@ -2,6 +2,7 @@ package co.edu.uniquindio.proyectofinal.fruteriaapp.Controller;
 
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Factory.ModelFactory;
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Producto;
+import co.edu.uniquindio.proyectofinal.fruteriaapp.ViewController.ProductoViewController;
 
 import java.util.List;
 
@@ -26,5 +27,9 @@ public class ProductoController {
 
     public List<Producto> obtenerProductosMayores(int precio) {
         return modelFactory.obtenerProductosMayores(precio);
+    }
+
+    public void agregarseComoObserverProductos(ProductoViewController productoViewController) {
+        modelFactory.agregarseComoObserverProductos(productoViewController);
     }
 }

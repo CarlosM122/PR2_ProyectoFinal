@@ -5,8 +5,9 @@ import java.util.ResourceBundle;
 
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Controller.ClienteController;
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Cliente;
-import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Producto;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -74,6 +75,9 @@ public class ClienteViewController {
     private TextField txtNumCelular;
 
     @FXML
+    private TextField txtFiltro;
+
+    @FXML
     void onActualizarCliente(ActionEvent event) {
         actualizarCliente(clienteSeleccionado);
     }
@@ -92,6 +96,28 @@ public class ClienteViewController {
     void initialize() {
         clienteController = new ClienteController();
         initView();
+
+        txtFiltro.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrarClientes(newValue);
+            }
+        });
+    }
+
+    private void filtrarClientes(String filtro) {
+        ObservableList<Cliente> clientesFiltrados = FXCollections.observableArrayList();
+        if(txtFiltro.getText().isEmpty()){
+            clientesFiltrados.addAll(listaClientes);
+        }
+        else{
+            for(Cliente cliente:listaClientes){
+                if(cliente.getNombre().toLowerCase().contains(filtro.toLowerCase()) || cliente.getCedula().toLowerCase().contains(filtro.toLowerCase())){
+                    clientesFiltrados.add(cliente);
+                }
+            }
+        }
+        ClienteTable.setItems(clientesFiltrados);
     }
 
     private void initView() {
@@ -150,7 +176,7 @@ public class ClienteViewController {
         for (Cliente cliente:listaClientes){
             if(cliente.getIdCliente().equalsIgnoreCase(idCliente)){
                 listaClientes.remove(cliente);
-                mostrarMensaje("Información Producto", "Producto Eliminado", "El producto se eliminó correctamente", Alert.AlertType.INFORMATION);
+                mostrarMensaje("Información Cliente", "Cliente Eliminado", "El cliente se eliminó correctamente", Alert.AlertType.INFORMATION);
                 limpiarCamposProducto();
                 return;
             }
@@ -189,6 +215,7 @@ public class ClienteViewController {
         alert.setTitle(titulo);
         alert.setHeaderText(header);
         alert.setContentText(contenido);
+        alert.show();
     }
 
     private boolean validarFormulario() {
@@ -201,7 +228,7 @@ public class ClienteViewController {
     private Cliente construirDatosCliente() {
         return Cliente.builder()
                 .nombre(txtNombre.getText())
-                .numCelular(Integer.parseInt(txtNumCelular.getText()))
+                .numCelular(txtNumCelular.getText())
                 .apellido(txtApellido.getText())
                 .cedula(txtCedula.getText())
                 .direccion(txtDireccion.getText())

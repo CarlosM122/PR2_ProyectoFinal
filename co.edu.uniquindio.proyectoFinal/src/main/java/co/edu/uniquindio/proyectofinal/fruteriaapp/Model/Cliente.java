@@ -8,7 +8,7 @@ public class Cliente {
     private String apellido;
     private String cedula;
     private String direccion;
-    private int numCelular;
+    private String numCelular;
 
     public static ClienteBuilder builder(){
         return new ClienteBuilder();
@@ -17,7 +17,7 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String idCliente, String nombre, String apellido, String cedula, String direccion, int numCelular) {
+    public Cliente(String idCliente, String nombre, String apellido, String cedula, String direccion, String numCelular) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -66,11 +66,11 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public int getNumCelular() {
+    public String getNumCelular() {
         return numCelular;
     }
 
-    public void setNumCelular(int numCelular) {
+    public void setNumCelular(String numCelular) {
         this.numCelular = numCelular;
     }
 }

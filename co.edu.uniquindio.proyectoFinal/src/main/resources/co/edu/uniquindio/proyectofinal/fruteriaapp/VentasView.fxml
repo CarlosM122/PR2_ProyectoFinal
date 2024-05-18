@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinal.fruteriaapp.ViewController.VentasViewController">
+   <children>
+      <AnchorPane prefHeight="498.0" prefWidth="827.0">
+         <children>
+            <Label layoutX="325.0" layoutY="5.0" text="INFORMACION DE VENTAS">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Separator layoutY="24.0" prefHeight="0.0" prefWidth="826.0" />
+            <TableView fx:id="TableVentas" layoutX="19.0" layoutY="30.0" prefHeight="458.0" prefWidth="789.0">
+               <columns>
+                  <TableColumn fx:id="tcIDVenta" prefWidth="96.79998302459717" text="ID Venta" />
+                  <TableColumn fx:id="tcFechaVenta" prefWidth="110.40003204345703" text="Fecha Venta" />
+                  <TableColumn fx:id="tcNombreCliente" prefWidth="107.20002746582031" text="Nombre Cliente" />
+                  <TableColumn fx:id="tcCedulaCliente" prefWidth="109.5999755859375" text="Cedula Cliente" />
+                  <TableColumn fx:id="tcIDEmpleado" prefWidth="122.40008544921875" text="ID Empleado" />
+                  <TableColumn fx:id="tcTotal" prefWidth="119.19989013671875" text="Total" />
+                  <TableColumn fx:id="tcDireccion" prefWidth="120.7999267578125" text="Dirección" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

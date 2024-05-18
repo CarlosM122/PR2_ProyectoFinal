@@ -1,14 +1,18 @@
 package co.edu.uniquindio.proyectofinal.fruteriaapp.Model;
 
 import co.edu.uniquindio.proyectofinal.fruteriaapp.Model.Builder.ProductoBuilder;
+import lombok.Data;
+
+@Data
 
 public class Producto {
+
     private String nombre;
     private String idProducto;
     private double precio;
     private int cantidadStock;
 
-    public static ProductoBuilder builder(){
+    public static ProductoBuilder builder() {
         return new ProductoBuilder();
     }
 
@@ -22,35 +26,4 @@ public class Producto {
         this.cantidadStock = cantidadStock;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(String idProducto) {
-        this.idProducto = idProducto;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public int getCantidadStock() {
-        return cantidadStock;
-    }
-
-    public void setCantidadStock(int cantidadStock) {
-        this.cantidadStock = cantidadStock;
-    }
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import co.edu.uniquindio.proyectofinal.fruteriaapp.Service.Observer;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -16,12 +17,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class ProductoViewController {
+public class ProductoViewController implements Observer {
     ObservableList<Producto> listaProductos = FXCollections.observableArrayList();
     Producto productoSeleccionado;
     ProductoController productoController;
-    List<Producto> listaProductosFiltrados = new ArrayList<>();
-
 
     @FXML
     private ResourceBundle resources;
@@ -111,6 +110,7 @@ public class ProductoViewController {
     void initialize() {
         productoController = new ProductoController();
         initView();
+        productoController.agregarseComoObserverProductos(this);
     }
 
     private void initView() {
@@ -210,6 +210,7 @@ public class ProductoViewController {
                 productoSeleccionado.setNombre(producto.getNombre());
                 productoSeleccionado.setIdProducto(producto.getIdProducto());
                 productoSeleccionado.setCantidadStock(producto.getCantidadStock());
+                limpiarCamposProducto();
                 listaProductos.remove(productoSeleccionado);
                 listaProductos.add(producto);
                 TableProducto.setItems(null);
@@ -230,6 +231,7 @@ public class ProductoViewController {
         alert.setTitle(titulo);
         alert.setHeaderText(header);
         alert.setContentText(contenido);
+        alert.show();
     }
 
     private boolean validarFormulario() {
@@ -274,5 +276,10 @@ public class ProductoViewController {
 
     private List<Producto> obtenerProductosMayores(int precio) {
         return productoController.obtenerProductosMayores(precio);
+    }
+
+    @Override
+    public void uptade() {
+        listaProductos.setAll(productoController.obtenerProductos());
     }
 }
